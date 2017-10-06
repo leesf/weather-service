@@ -1,0 +1,29 @@
+######## shenzhen weather url
+sz_url=http://www.weather.com.cn/weather/101280601.shtml
+
+######## login username
+username=490081539@qq.com
+
+######## authorization code
+authorization_code=************
+
+######## sender_email
+sender_email=490081539@qq.com
+
+######## sender_name
+sender_name=leesf
+
+######## receivers
+receivers=****@qq.com,*****@qq.com
+
+######## server host
+host=smtp.qq.com
+
+######## mail.smtp.port
+port=465
+
+######## mail.smtp.protocol
+protocol=smtp
+
+######## retry times, when exception occurs while crawling, retry times
+retry_times=5
