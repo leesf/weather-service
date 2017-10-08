@@ -68,7 +68,7 @@ public class WeatherCrawler {
         return weatherInfo;
     }
 
-    public WeatherInfo parseResult(String content) {
+    private WeatherInfo parseResult(String content) {
         Document document = Jsoup.parse(content);
         Element element = document.getElementById("7d");
         Elements elements = element.getElementsByTag("ul");
