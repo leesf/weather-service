@@ -30,6 +30,7 @@ public class WeatherServiceMain {
                 mailSender.sendToAll();
                 break;
             } else { // abnormal, sleep 10 minutes and visit again
+				logger.info("visit abnormal, will visit again 10 minutes later");
                 try {
                     Thread.sleep(10 * 1000 * 60);
                 } catch (InterruptedException e) {
