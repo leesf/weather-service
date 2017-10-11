@@ -11,11 +11,16 @@
 
 # 待完成 To Do List 
 
-* 可添加微信提醒接口。
+* ~~可添加微信提醒接口~~。
 * 可添加短信提醒接口。
 * 未来七天天气情况。
 * 在`constant.property`中配置地区而非`url`。
 * 添加其他邮箱发送，如`google`、`163`等。
+
+# 微信提醒接口说明
+
+* 微信提醒接口使用**Server酱**完成，其链接为 [Server酱](https://sc.ftqq.com/3.version)。登录后将`SCKEY`复制到`resources/constant.property`中的`weixin_receiver_keys`中即可，多个提醒人使用`,`分隔，最后关注**Server酱**的微信服务号即可，下次就会自动提醒。
+
 
 # 说明链接 Description Link 
 
