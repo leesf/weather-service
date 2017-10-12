@@ -43,4 +43,14 @@ public class WeatherInfo {
         }
         return stringBuffer.toString();
     }
+
+    public String getWeixinFormatString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        if (weather.contains("雨")) {
+            stringBuffer.append("主人今天记得带伞回家哦~");
+        } else {
+            stringBuffer.append("今天可以不用带伞回家哦~");
+        }
+        return stringBuffer.toString();
+    }
 }

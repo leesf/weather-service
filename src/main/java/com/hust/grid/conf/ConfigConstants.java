@@ -22,4 +22,6 @@ public class ConfigConstants {
 
     public final static String RETRY_TIMES = "retry_times";
 
+    public final static String WEIXIN_RECEIVER_KEYS = "weixin_receiver_keys";
+
 }

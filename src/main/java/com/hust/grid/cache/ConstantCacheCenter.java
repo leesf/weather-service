@@ -24,6 +24,7 @@ public class ConstantCacheCenter {
     private final static String CONSTANT_FILE_NAME = "constant.property";
     private static String constant_file_path;
     private int retry_times;
+    private List<String> weixinReceiverKeysList;
 
     private ConstantCacheCenter() {
     }
@@ -66,6 +67,7 @@ public class ConstantCacheCenter {
         protocol = properties.getProperty(ConfigConstants.PROTOCOL);
         port = properties.getProperty(ConfigConstants.PORT);
         initReceivers(properties.getProperty(ConfigConstants.RECEIVERS));
+        initWeixinReceiverKeys(properties.getProperty(ConfigConstants.WEIXIN_RECEIVER_KEYS));
         retry_times = Integer.parseInt(properties.getProperty(ConfigConstants.RETRY_TIMES));
 
         /*Thread monitorThread = new MonitorThread(conf);
@@ -78,6 +80,14 @@ public class ConstantCacheCenter {
         String[] _receivers = receiverString.split(",");
         for (String _receiver : _receivers) {
             receivers.add(_receiver.trim());
+        }
+    }
+
+    private void initWeixinReceiverKeys(String weixinReceiverKeys) {
+        weixinReceiverKeysList = new ArrayList<>();
+        String[] _receivers = weixinReceiverKeys.split(",");
+        for (String _receiver : _receivers) {
+            weixinReceiverKeysList.add(_receiver.trim());
         }
     }
 
@@ -121,6 +131,9 @@ public class ConstantCacheCenter {
         return retry_times;
     }
 
+    public List<String> getWeixinReceiverKeysList() {
+        return weixinReceiverKeysList;
+    }
 
     /**
      * monitor the changes in constant.property

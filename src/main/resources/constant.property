@@ -27,3 +27,6 @@ protocol=smtp
 
 ######## retry times, when exception occurs while crawling, retry times
 retry_times=5
+
+######## weixin keys
+weixin_receiver_keys=******************

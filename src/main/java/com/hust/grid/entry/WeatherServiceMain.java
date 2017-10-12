@@ -4,6 +4,7 @@ import com.hust.grid.cache.ConstantCacheCenter;
 import com.hust.grid.email.MailSender;
 import com.hust.grid.weather.WeatherCrawler;
 import com.hust.grid.bean.WeatherInfo;
+import com.hust.grid.weixin.WeiXinSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +19,7 @@ public class WeatherServiceMain {
                 constantCacheCenter.getCrawlUrl() + ", host => " + constantCacheCenter.getHost() + ", port => " +
                 constantCacheCenter.getPort() + ", protocol => " + constantCacheCenter.getProtocol() + ", receivers => " +
                 constantCacheCenter.getReceivers().toString() + ", senderEmail => " + constantCacheCenter.getSenderEmail() + ", senderName => " +
-                constantCacheCenter.getSenderName() + ", username => " + constantCacheCenter.getUsername());
+                constantCacheCenter.getSenderName() + ", username => " + constantCacheCenter.getUsername() + ", receiverKeys => " + constantCacheCenter.getWeixinReceiverKeysList());
     }
 
     private static void doWork(ConstantCacheCenter constantCacheCenter) {
@@ -28,9 +29,12 @@ public class WeatherServiceMain {
             if (weatherInfo != null && weatherInfo.isValid()) { // normal
                 MailSender mailSender = new MailSender(weatherInfo);
                 mailSender.sendToAll();
+
+                WeiXinSender weiXinSender = new WeiXinSender(weatherInfo);
+                weiXinSender.sendToAll();
+
                 break;
             } else { // abnormal, sleep 10 minutes and visit again
-				logger.info("visit abnormal, will visit again 10 minutes later");
                 try {
                     Thread.sleep(10 * 1000 * 60);
                 } catch (InterruptedException e) {
