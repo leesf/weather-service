@@ -1,6 +1,6 @@
 # Weather-Service 
 
-> `weather-service`为一个天气提醒器，爬取深圳的天气并通过`QQ 邮箱`发送邮件提醒。
+> `weather-service`为一个天气提醒器，每天定时爬取深圳的天气并通过`QQ 邮箱`和`微信`发送提醒。
 
 # 如何使用 How to Use
 
